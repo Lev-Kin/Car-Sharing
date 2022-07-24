@@ -1,17 +1,5 @@
 type: edu
 files:
-- name: src/carsharing/Main.java
-  visible: true
-  text: |-
-    package carsharing;
-
-    public class Main {
-
-        public static void main(String[] args) {
-            // write your code here
-        }
-    }
-  learner_created: false
 - name: test/DatabaseUtil.java
   visible: false
   text: |
@@ -347,6 +335,45 @@ files:
         }
     }
   learner_created: false
+- name: src/carsharing/dao/CarDao.java
+  visible: true
+  learner_created: true
+- name: src/carsharing/entity/Company.java
+  visible: true
+  learner_created: true
+- name: src/carsharing/dao/BaseDao.java
+  visible: true
+  learner_created: true
+- name: src/carsharing/dao/ControllerH2.java
+  visible: true
+  learner_created: true
+- name: src/carsharing/Menu.java
+  visible: true
+  learner_created: true
+- name: src/carsharing/dao/CompanyDao.java
+  visible: true
+  learner_created: true
+- name: src/carsharing/entity/Car.java
+  visible: true
+  learner_created: true
+- name: src/carsharing/dao/CompanyDaoH2Impl.java
+  visible: true
+  learner_created: true
+- name: src/carsharing/Main.java
+  visible: true
+  text: |-
+    package carsharing;
+
+    public class Main {
+
+        public static void main(String[] args) {
+            // write your code here
+        }
+    }
+  learner_created: false
 feedback_link: https://hyperskill.org/learn/step/11502#comment
-status: Unchecked
-record: -1
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Sun, 24 Jul 2022 09:23:14 UTC
+record: 2

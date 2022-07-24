@@ -9,6 +9,38 @@
       <module name="Car_Sharing.Car_Sharing-task-build-test-results.main" target="11" />
       <module name="Car_Sharing.Car_Sharing-task-build-tmp.main" target="11" />
       <module name="Car_Sharing.Car_Sharing-task.main" target="11" />
+      <module name="Car_Sharing.Topics-Custom_serialization-Custom_serialization_behavior.main" target="11" />
+      <module name="Car_Sharing.Topics-Custom_serialization-Initialize_transient_fields.main" target="11" />
+      <module name="Car_Sharing.Topics-Custom_serialization-Password_processing.main" target="11" />
+      <module name="Car_Sharing.Topics-Custom_serialization-Serialization_mystery.main" target="11" />
+      <module name="Car_Sharing.Topics-Custom_serialization-Serializing_integers.main" target="11" />
+      <module name="Car_Sharing.Topics-Custom_serialization-The_Range_class.main" target="11" />
+      <module name="Car_Sharing.Topics-Custom_serialization-Theory.main" target="11" />
+      <module name="Car_Sharing.Topics-Custom_threads-Message_notifier_as_a_thread.main" target="11" />
+      <module name="Car_Sharing.Topics-Custom_threads-Multiple_threads.main" target="11" />
+      <module name="Car_Sharing.Topics-Custom_threads-Statements.main" target="11" />
+      <module name="Car_Sharing.Topics-Custom_threads-Statements_about_starting_threads.main" target="11" />
+      <module name="Car_Sharing.Topics-Custom_threads-The_difference_between_start_and_run.main" target="11" />
+      <module name="Car_Sharing.Topics-Custom_threads-The_order_of_lines.main" target="11" />
+      <module name="Car_Sharing.Topics-Custom_threads-Theory.main" target="11" />
+      <module name="Car_Sharing.Topics-Custom_threads-When_will_a_thread_start_performing_a_task.main" target="11" />
+      <module name="Car_Sharing.Topics-Custom_threads-Writing_a_thread_for_printing_numbers.main" target="11" />
+      <module name="Car_Sharing.Topics-The_main_method-Different_declarations.main" target="11" />
+      <module name="Car_Sharing.Topics-The_main_method-No_main_args.main" target="11" />
+      <module name="Car_Sharing.Topics-The_main_method-Print__Hello,_Java.main" target="11" />
+      <module name="Car_Sharing.Topics-The_main_method-Print__We_are_robots.main" target="11" />
+      <module name="Car_Sharing.Topics-The_main_method-Select_all_correct_statements.main" target="11" />
+      <module name="Car_Sharing.Topics-The_main_method-Theory.main" target="11" />
+      <module name="Car_Sharing.Topics-The_main_method-Who_is_the_main.main" target="11" />
+      <module name="Car_Sharing.Topics-Thread_synchronization-Countdown_counter.main" target="11" />
+      <module name="Car_Sharing.Topics-Thread_synchronization-Methods.main" target="11" />
+      <module name="Car_Sharing.Topics-Thread_synchronization-Multithreaded_counter.main" target="11" />
+      <module name="Car_Sharing.Topics-Thread_synchronization-Synchronized_keyword.main" target="11" />
+      <module name="Car_Sharing.Topics-Thread_synchronization-Theory.main" target="11" />
+      <module name="Car_Sharing.Topics-Thread_synchronization-Thread-safe_account.main" target="11" />
+      <module name="Car_Sharing.Topics-Thread_synchronization-Thread_synchronization_in_Java.main" target="11" />
+      <module name="Car_Sharing.Topics-Thread_synchronization-Two_methods,_two_statements.main" target="11" />
+      <module name="Car_Sharing.Topics-Thread_synchronization-What_is_wrong.main" target="11" />
       <module name="Car_Sharing.util.main" target="11" />
     </bytecodeTargetLevel>
   </component>
