@@ -1,5 +1,6 @@
 package carsharing;
 
+import carsharing.dao.CarDaoH2Impl;
 import carsharing.dao.CompanyDaoH2Impl;
 import carsharing.dao.ControllerH2;
 
@@ -9,14 +10,16 @@ public class Main {
 
         ControllerH2 controllerH2 = new ControllerH2(getDbName(args));
         CompanyDaoH2Impl companyDaoH2 = new CompanyDaoH2Impl(controllerH2.getConnection());
+        CarDaoH2Impl carDaoH2 = new CarDaoH2Impl(controllerH2.getConnection());
 
         while (true) {
             Menu.mainMenu();
             switch (Menu.userChoice()) {
                 case 1:
-                    Menu.managementMenu(companyDaoH2);
+                    Menu.managementMenu(companyDaoH2, carDaoH2);
                     break;
                 case 0:
+                    controllerH2.closeConnection();
                     return;
             }
         }

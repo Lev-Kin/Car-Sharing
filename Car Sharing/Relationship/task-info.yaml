@@ -555,6 +555,268 @@ files:
         }
     }
   learner_created: false
+- name: src/carsharing/Menu.java
+  visible: true
+  text: |+
+    package carsharing;
+
+    import carsharing.dao.CompanyDaoH2Impl;
+
+    import java.util.Scanner;
+
+    public class Menu {
+
+        public static final Scanner scanner = new Scanner(System.in);
+
+        public static void mainMenu() {
+            System.out.println("1. Log in as a manager");
+            System.out.println("0. Exit");
+        }
+
+        private static void managerMenu() {
+            System.out.println("1. Company list");
+            System.out.println("2. Create a company");
+            System.out.println("0. Back");
+        }
+
+        public static void managementMenu(CompanyDaoH2Impl companyDaoH2) {
+            Scanner scanner = new Scanner(System.in);
+            while (true) {
+                Menu.managerMenu();
+                switch (Menu.userChoice()) {
+                    case 0:
+                        return;
+
+                    case 1:
+                        if ((long) companyDaoH2.getAllCompanies().size() == 0) {
+                            System.out.println("The company list is empty!\n");
+                        } else {
+                            System.out.println("Company list:");
+                            companyDaoH2.getAllCompanies()
+                                    .forEach(System.out::println);
+                            System.out.println();
+                        }
+                        break;
+
+                    case 2:
+                        System.out.println("Enter the company name:");
+                        companyDaoH2.createCompany(scanner.nextLine());
+                        System.out.println("The company was created!\n");
+                        break;
+                }
+            }
+        }
+
+        public static int userChoice() {
+            return scanner.nextInt();
+        }
+    }
+
+  learner_created: true
+- name: src/carsharing/dao/CompanyDaoH2Impl.java
+  visible: true
+  text: |+
+    package carsharing.dao;
+
+    import carsharing.entity.Company;
+
+    import java.sql.*;
+    import java.util.LinkedList;
+    import java.util.List;
+
+    public class CompanyDaoH2Impl extends BaseDao implements CompanyDao {
+
+        private static final String CREATE_TABLE_SQL = "CREATE TABLE IF NOT EXISTS COMPANY " +
+                "(ID INT AUTO_INCREMENT PRIMARY KEY, " +
+                " NAME VARCHAR(255) NOT NULL UNIQUE)";
+        private static final String GET_ALL_COMPANIES = "SELECT * FROM COMPANY";
+        private static final String CREATE_COMPANY = "INSERT INTO COMPANY (NAME) VALUES(?)";
+
+        public CompanyDaoH2Impl(Connection connection) {
+            super(connection);
+        }
+
+        @Override
+        protected String getCreateTableSQL() {
+            return CREATE_TABLE_SQL;
+        }
+
+        @Override
+        public List<Company> getAllCompanies() {
+            List<Company> companies = new LinkedList<>();
+            try (PreparedStatement stmt = connection.prepareStatement(GET_ALL_COMPANIES)) {
+                ResultSet resultSet = stmt.executeQuery();
+                while (resultSet.next()) {
+                    companies.add(new Company(resultSet.getInt("ID"), resultSet.getString("NAME")));
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return companies;
+        }
+
+        @Override
+        public void createCompany(String company) {
+            try (PreparedStatement stmt = connection.prepareStatement(CREATE_COMPANY)) {
+                stmt.setString(1, company);
+                stmt.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+  learner_created: true
+- name: src/carsharing/entity/Car.java
+  visible: true
+  text: |+
+    package carsharing.entity;
+
+    public class Car {
+        private int id;
+        private String name;
+
+        public Car(int id, String name) {
+            this.id = id;
+            this.name = name;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        @Override
+        public String toString() {
+            return this.getId() + ". " + this.getName();
+        }
+    }
+
+  learner_created: true
+- name: src/carsharing/dao/CarDao.java
+  visible: true
+  text: |+
+    package carsharing.dao;
+
+    import carsharing.entity.Car;
+    import java.util.List;
+
+    public interface CarDao {
+        List<Car> getAllCars();
+
+        void createCar(String car);
+    }
+
+  learner_created: true
+- name: src/carsharing/dao/CompanyDao.java
+  visible: true
+  text: |+
+    package carsharing.dao;
+
+    import carsharing.entity.Company;
+    import java.util.List;
+
+    public interface CompanyDao {
+        List<Company> getAllCompanies();
+
+        void createCompany(String company);
+    }
+
+  learner_created: true
+- name: src/carsharing/dao/ControllerH2.java
+  visible: true
+  text: |+
+    package carsharing.dao;
+
+    import java.sql.Connection;
+    import java.sql.DriverManager;
+    import java.sql.SQLException;
+
+    public class ControllerH2 {
+        static final String JDBC_DRIVER = "org.h2.Driver";
+        static final String DB_URL = "jdbc:h2:./src/carsharing/db/";
+
+        private Connection connection;
+
+        private static Connection createConnection(String dbName) throws SQLException, ClassNotFoundException {
+            Class.forName(JDBC_DRIVER);
+            return DriverManager.getConnection(DB_URL + dbName);
+        }
+
+        public ControllerH2(String dbName) {
+            try {
+                connection = createConnection(dbName);
+                connection.setAutoCommit(true);
+            } catch (Exception se) {
+                se.printStackTrace();
+            }
+        }
+
+        public Connection getConnection() {
+            return connection;
+        }
+
+        public void closeConnection() {
+            try {
+                if (connection != null) connection.close();
+            } catch (SQLException se) {
+                se.printStackTrace();
+            }
+        }
+
+    }
+
+  learner_created: true
+- name: src/carsharing/dao/BaseDao.java
+  visible: true
+  text: |
+    package carsharing.dao;
+
+    import java.sql.Connection;
+    import java.sql.SQLException;
+    import java.sql.Statement;
+
+    public abstract class BaseDao {
+
+        protected Connection connection;
+
+        public BaseDao(Connection connection) {
+            this.connection = connection;
+            createTable();
+        }
+
+        private void createTable() {
+            try (Statement statement = connection.createStatement()) {
+                statement.executeUpdate(getCreateTableSQL());
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        protected abstract String getCreateTableSQL();
+    }
+  learner_created: true
+- name: src/carsharing/dao/CarDaoH2Impl.java
+  visible: true
+  learner_created: true
+- name: src/carsharing/entity/Company.java
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/learn/step/11503#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Mon, 25 Jul 2022 08:56:19 UTC
 record: -1

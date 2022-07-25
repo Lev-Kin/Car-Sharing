@@ -12,5 +12,14 @@ files:
     }
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/4335#comment
-status: Solved
+status: Failed
+feedback:
+  message: |
+    Failed. Runtime error
+
+    Error:
+    Error: Main method not found in class Main, please define the main method as:
+       public static void main(String[] args)
+    or a JavaFX application class must extend javafx.application.Application
+  time: Mon, 25 Jul 2022 08:54:48 UTC
 record: -1

@@ -7,7 +7,6 @@ import java.sql.SQLException;
 public class ControllerH2 {
     static final String JDBC_DRIVER = "org.h2.Driver";
     static final String DB_URL = "jdbc:h2:./src/carsharing/db/";
-
     private Connection connection;
 
     private static Connection createConnection(String dbName) throws SQLException, ClassNotFoundException {
@@ -35,6 +34,4 @@ public class ControllerH2 {
             se.printStackTrace();
         }
     }
-
 }
-
