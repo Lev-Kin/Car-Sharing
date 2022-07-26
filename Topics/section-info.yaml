@@ -3,3 +3,4 @@ content:
 - Custom serialization
 - Custom threads
 - Thread synchronization
+- Iterating over arrays

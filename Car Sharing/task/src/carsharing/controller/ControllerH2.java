@@ -1,4 +1,4 @@
-package carsharing.dao;
+package carsharing.controller;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -35,3 +35,4 @@ public class ControllerH2 {
         }
     }
 }
+

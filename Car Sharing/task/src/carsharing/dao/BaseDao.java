@@ -8,21 +8,19 @@ public abstract class BaseDao {
 
     protected Connection connection;
 
-    public BaseDao (Connection connection) {
+    public BaseDao(Connection connection) {
         this.connection = connection;
         createTable();
     }
 
     private void createTable() {
-        try (Statement statement = connection.createStatement()){
+        try (Statement statement = connection.createStatement()) {
             statement.executeUpdate(getCreateTableSQL());
-        } catch(SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     protected abstract String getCreateTableSQL();
-
-    protected abstract String dropTableSQL();
 
 }

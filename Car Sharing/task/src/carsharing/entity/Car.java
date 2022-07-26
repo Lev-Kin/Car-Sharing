@@ -3,7 +3,7 @@ package carsharing.entity;
 public class Car {
     private int id;
     private String name;
-    private int companyId;
+    private final int companyId;
 
     public Car(int id, String name, int companyId) {
         this.id = id;
@@ -21,6 +21,10 @@ public class Car {
 
     public String getName() {
         return name;
+    }
+
+    public int getCompanyId() {
+        return companyId;
     }
 
     public void setName(String name) {

@@ -25,6 +25,16 @@
       <module name="Car_Sharing.Topics-Custom_threads-Theory.main" target="11" />
       <module name="Car_Sharing.Topics-Custom_threads-When_will_a_thread_start_performing_a_task.main" target="11" />
       <module name="Car_Sharing.Topics-Custom_threads-Writing_a_thread_for_printing_numbers.main" target="11" />
+      <module name="Car_Sharing.Topics-Iterating_over_arrays-Boxes.main" target="11" />
+      <module name="Car_Sharing.Topics-Iterating_over_arrays-Count_how_many_times_a_number_occurs.main" target="11" />
+      <module name="Car_Sharing.Topics-Iterating_over_arrays-Cyclically_shifting_elements.main" target="11" />
+      <module name="Car_Sharing.Topics-Iterating_over_arrays-Right_Rotation.main" target="11" />
+      <module name="Car_Sharing.Topics-Iterating_over_arrays-Sum_array_elements_greater_than_a_value.main" target="11" />
+      <module name="Car_Sharing.Topics-Iterating_over_arrays-The_index_of_the_first_max_in_an_array.main" target="11" />
+      <module name="Car_Sharing.Topics-Iterating_over_arrays-The_maximum_product_of_adjacent_elements.main" target="11" />
+      <module name="Car_Sharing.Topics-Iterating_over_arrays-The_sum_of_array_elements.main" target="11" />
+      <module name="Car_Sharing.Topics-Iterating_over_arrays-Theory.main" target="11" />
+      <module name="Car_Sharing.Topics-Iterating_over_arrays-Triples.main" target="11" />
       <module name="Car_Sharing.Topics-The_main_method-Different_declarations.main" target="11" />
       <module name="Car_Sharing.Topics-The_main_method-No_main_args.main" target="11" />
       <module name="Car_Sharing.Topics-The_main_method-Print__Hello,_Java.main" target="11" />
